@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.sql.Connection;
 
 public class TimeKeeper extends JFrame {
 	
@@ -26,6 +27,10 @@ public class TimeKeeper extends JFrame {
 			}
 		};
 		initGui();
+		PntConnector connector = new PntConnector();
+		Connection pntConnection = connector.pntConnect();
+		if(pntConnection!=null)
+			System.out.println("db connect!!!!");
 	}
 
 	public static void main(String[] args) {
